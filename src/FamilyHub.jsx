@@ -146,7 +146,6 @@ function TabButton({ active, onClick, icon: Icon, label }) {
   );
 }
 
-
 const HOURS_24 = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
 const MINUTES_10 = ["00", "10", "20", "30", "40", "50"];
 
@@ -154,8 +153,7 @@ function TimeField({ value, onChange, bg = "white" }) {
   const isUndecided = value === "미정";
   const [h, m] = isUndecided ? ["09", "00"] : value.split(":");
   return (
-    <div className="flex gap-1 mb-6 p-1.5 rounded-full w-fit max-w-full overflow-x-auto"
->
+    <div className="flex items-center flex-wrap gap-1">
       <select
         value={h}
         disabled={isUndecided}
@@ -2320,7 +2318,7 @@ export default function FamilyHub() {
         </div>
 
         <div
-          className="flex gap-1.5 mb-6 p-1.5 rounded-full w-fit"
+          className="flex gap-1 mb-6 p-1.5 rounded-full w-fit max-w-full overflow-x-auto"
           style={{ background: PALETTE.paperDeep, border: `1px solid ${PALETTE.line}` }}
         >
           <TabButton active={tab === "calendar"} onClick={() => setTab("calendar")} icon={Calendar} label="캘린더" />
