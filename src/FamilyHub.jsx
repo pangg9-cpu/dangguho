@@ -133,18 +133,19 @@ function TabButton({ active, onClick, icon: Icon, label }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2"
+      className="flex items-center gap-1.5 px-3 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 whitespace-nowrap flex-shrink-0"
       style={{
         background: active ? PALETTE.sage : "transparent",
         color: active ? PALETTE.paper : PALETTE.inkSoft,
         fontFamily: "'Noto Sans KR', sans-serif",
       }}
     >
-      <Icon size={16} strokeWidth={2} />
+      <Icon size={15} strokeWidth={2} className="flex-shrink-0" />
       {label}
     </button>
   );
 }
+
 
 const HOURS_24 = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
 const MINUTES_10 = ["00", "10", "20", "30", "40", "50"];
@@ -153,7 +154,8 @@ function TimeField({ value, onChange, bg = "white" }) {
   const isUndecided = value === "미정";
   const [h, m] = isUndecided ? ["09", "00"] : value.split(":");
   return (
-    <div className="flex items-center flex-wrap gap-1">
+    <div className="flex gap-1 mb-6 p-1.5 rounded-full w-fit max-w-full overflow-x-auto"
+>
       <select
         value={h}
         disabled={isUndecided}
