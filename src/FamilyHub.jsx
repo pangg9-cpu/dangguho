@@ -781,7 +781,7 @@ function CalendarTab({ data, persist }) {
                     return (
                       <div
                         key={t.id}
-                        className="w-full truncate rounded px-1 text-left"
+                        className="w-full overflow-x-auto whitespace-nowrap no-scrollbar rounded px-1 text-left"
                         style={{
                           fontSize: "10px",
                           fontFamily: t.kind === "event" ? "'Jua', sans-serif" : "'Noto Sans KR', sans-serif",
@@ -932,9 +932,9 @@ function CalendarTab({ data, persist }) {
                       >
                         {ev.done && <Check size={12} color="white" />}
                       </button>
-                      <div className="flex-1 min-w-0 flex items-baseline gap-1.5 overflow-hidden whitespace-nowrap">
+                      <div className="flex-1 min-w-0 flex items-baseline gap-1.5 overflow-x-auto whitespace-nowrap no-scrollbar">
                         <span
-                          className="text-sm font-bold truncate"
+                          className="text-sm font-bold flex-shrink-0"
                           style={{
                             color: ev.done ? PALETTE.inkSoft : PALETTE.ink,
                             textDecoration: ev.done ? "line-through" : "none",
@@ -970,7 +970,7 @@ function CalendarTab({ data, persist }) {
                           </span>
                         )}
                         {ev.place && (
-                          <span className="text-xs flex-shrink-0 truncate" style={{ color: PALETTE.inkSoft, fontFamily: "'Noto Sans KR', sans-serif" }}>
+                          <span className="text-xs flex-shrink-0" style={{ color: PALETTE.inkSoft, fontFamily: "'Noto Sans KR', sans-serif" }}>
                             / {ev.place}
                           </span>
                         )}
@@ -980,7 +980,7 @@ function CalendarTab({ data, persist }) {
                           </span>
                         )}
                         {ev.memo && (
-                          <span className="text-xs truncate" style={{ color: PALETTE.inkSoft, fontFamily: "'Pretendard', sans-serif" }}>
+                          <span className="text-xs flex-shrink-0" style={{ color: PALETTE.inkSoft, fontFamily: "'Pretendard', sans-serif" }}>
                             / {ev.memo}
                           </span>
                         )}
